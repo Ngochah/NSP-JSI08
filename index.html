@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="options"></div>
+    <script>
+        const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': 'SIGN-UP-FOR-KEY',
+		'X-RapidAPI-Host': 'covid-19-coronavirus-statistics.p.rapidapi.com'
+	}
+};
+
+fetch('https://covid-19-coronavirus-statistics.p.rapidapi.com/v1/stats?country=Canada', options)
+	.then(response => response.json())
+	.then(function(data){
+        localStorage.setItem("options", JSON.stringify(data))
+        const userId = JSON.parse(localStorage.getItem("options"))
+        const html=
+            `
+            <h1> ${options.title} </h1>
+            <p> ${options.body}</p>
+
+            `;
+            let x= document.querySelector("#thongtin");
+            x.insertAdjacentHTML("beforeend",html)
+
+    })
+    </script>
+</body>
+</html>
