@@ -1,37 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <div id="options"></div>
+  </head>
+  <body>
     <script>
-        const options = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': 'SIGN-UP-FOR-KEY',
-		'X-RapidAPI-Host': 'covid-19-coronavirus-statistics.p.rapidapi.com'
-	}
-};
+      const arr1 = [1, 2, 4, 5, 6];
+      const arr2 = [1, 6, 8, 9, 0];
+      const arr3 = [...arr1, ...arr2];
+      const valuestoremove = [1, 6];
+      const newarr = arr3.filter((item) => !valuestoremove.includes(item));
+      console.log(newarr);
 
-fetch('https://covid-19-coronavirus-statistics.p.rapidapi.com/v1/stats?country=Canada', options)
-	.then(response => response.json())
-	.then(function(data){
-        localStorage.setItem("options", JSON.stringify(data))
-        const userId = JSON.parse(localStorage.getItem("options"))
-        const html=
-            `
-            <h1> ${options.title} </h1>
-            <p> ${options.body}</p>
+      const arr4 = [1, 54, 6, 7];
+      const newarr2 = arr4.map((item, index, array) => item + 5);
+      console.log(newarr2);
 
-            `;
-            let x= document.querySelector("#thongtin");
-            x.insertAdjacentHTML("beforeend",html)
+      const m = [1, 2, 4, 5, 6, 7];
+      const n = [3, 5, 675, 8, 96];
+      const valuestoremove2 = [1, 8, 10, 96, 7];
+      const m1 = m.filter((item) => !valuestoremove2.includes(item));
+      console.log(m1);
+      const n1 = n.filter((item) => !valuestoremove2.includes(item));
+      console.log(n1);
 
-    })
+      constplayers = [
+        { id: 11, name: "Messi", age: 33 },
+        { id: 12, name: "Ronaldo", age: 34 },
+        { id: 13, name: "Young", age: 35 },
+        { id: 14, name: "Mane", age: 21 },
+        { id: 15, name: "Salah", age: 24 },
+      ];
+      //câu cuối em chưa bt làm ạ :'((
     </script>
-</body>
+  </body>
 </html>
